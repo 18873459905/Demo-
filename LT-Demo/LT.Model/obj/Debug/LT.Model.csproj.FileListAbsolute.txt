@@ -1,0 +1,11 @@
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\LT.Model.dll.config
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\LT.Model.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\LT.Model.pdb
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\EntityFramework.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\EntityFramework.xml
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\obj\Debug\LT.Model.csprojAssemblyReference.cache
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\obj\Debug\LT.Model.csproj.CopyComplete
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\obj\Debug\LT.Model.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.Model\obj\Debug\LT.Model.pdb

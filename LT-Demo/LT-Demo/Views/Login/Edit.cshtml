@@ -1,0 +1,130 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/frame/layui/css/layui.css" rel="stylesheet" />
+    <title>Enit</title>
+</head>
+<body>
+    <header class="layui-form">
+        <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">商铺名称：</label>
+            <div class="layui-input-block">  
+                <input type="text" name="EmpName" required lay-verify="required" 
+                       value="@ViewBag.shop.ShowName" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">商品名称：</label>
+            <div class="layui-input-block">
+                <input type="text" name="CardId" value="@ViewBag.Commoditys.CommodityName" 
+                       required lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">价格：</label>
+            <div class="layui-input-block">
+                <input type="text" name="Price" required lay-verify="required" 
+                     value="@ViewBag.Commoditys.Price"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">商品类型：</label>
+            <div class="layui-input-block">
+                <select name="interest" lay-filter="aihao" id="section">
+                    @foreach (var item in ViewBag.CommodityTypes)
+                    {
+                        if (item.Id == ViewBag.Commoditys.TypeId)
+                        {
+                            <option value=@item.Id selected>@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value=@item.Id>@item.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">库存：</label>
+            <div class="layui-input-block">
+                <input type="text" name="Email" required lay-verify="required"  
+                     value="@ViewBag.Commoditys.Inventory"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">描述：</label>
+            <div class="layui-input-block">
+                <input type="text" name="Descript" required lay-verify="required" 
+                    value="@ViewBag.Commoditys.Descript"  autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="*" id="btnUpdate">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+        <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+    </header>
+    <script src="~/frame/layui/layui.js"></script>
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+            form.render();
+            //各种基于事件的操作，下面会有进一步介绍
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#btnUpdate").click(function () {
+                var id = $("#txt_id").val();
+                var name = $("input[name=EmpName]").val();
+                var time = $("#time").val();
+                var cardId = $("input[name=CardId]").val();
+                var mobile = $("input[name=Mobile]").val();
+                var email = $("input[name=Email]").val();
+                var weChat = $("input[name=WeChat]").val();
+                var addr = $("input[name=Addr]").val();
+                var section = $("#section").val();
+
+                $.ajax({
+                    url: "/Login/UpdateMethod",
+                    //data: { Id: id, EmpName: name, Sex: sex, CardId: cardId, Mobile: mobile, Email: email, WeChat: weChat, JoinDate: time, Addr: addr, DepartId: section },
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.success) {
+                            layer.msg(data.msg, { icon: 2, time: 2000 });
+                            setTimeout(function () {
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(index); parent.location.reload();
+                            }, 2000);
+                            //var index = parent.layer.getFrameIndex(window.name); //获取当前父级窗口
+                            //parent.layer.close(index);//关闭页面
+                            //parent.location.reload();   // 刷新主页面
+                        } else {
+                            layer.msg(data.msg, { icon: 2, time: 10000 });
+                        }
+                    }
+                });
+
+            });
+        })
+
+    </script>
+</body>
+</html>

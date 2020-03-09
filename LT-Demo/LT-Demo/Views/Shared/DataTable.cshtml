@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "DataTable";
+}
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link href="~/frame/layui/css/layui.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-3.3.1.js"></script>
+        <script src="~/Scripts/jquery-3.2.1.js"></script>
+        <style>
+
+            /*.layui-table-body {
+            display: flex;justify-content: center;overflow: auto;
+            }*/
+            .layui-table-tool{
+            display: flex;justify-content: center;
+            }
+            .layui-table-view {
+                margin: 10px auto;
+                overflow: hidden;
+                display: table;
+            }
+            /*.layui-table {
+            display: flex;justify-content: center;*/
+            /*}*/
+        </style>
+    </head>
+    <body>
+        <h5 style="display: flex;justify-content: center;font-size:32px;">默认数据</h5>
+        <table id="table" lay-filter="test" class="layui-hide"></table>
+
+        <script src="~/frame/layui/layui.js"></script>
+        <script>
+
+            //引入layui的table组件
+            layui.use('table', function () {
+                var table = layui.table;
+                //第一个实例
+                var tableIns = table.render({
+                    elem: '#table'
+                    , height: 460
+                    , url: '/Login/GetEmpList' //数据接口
+                    , page: true //开启分页
+                    , cols: [[ //表头
+                        { field: 'Id', title: 'ID', width: 40, fixed: 'left', align: 'center' }
+                        , { field: 'ShopName', title: '店铺名称', width: 100, align: 'center' }
+                        , { field: 'Name', title: '商品名称', width: 100, align: 'center' }
+                        , { field: 'Price', title: '商品价格', width: 120, align: 'center' }
+                        , { field: 'ShopNum', title: '商品数量', width: 100, align: 'center' }
+                        , { field: 'TypeName', title: '商品类型', width: 100, align: 'center' }
+                        , { field: 'Right', title: '操作', width: 240, templet: '#barDemo', align: 'center' }
+                    ]]
+                });
+                //对工具条进行时间监听
+                table.on('tool(test)', function (obj) {
+                    var data = obj.data;
+                    var layEvent = obj.event;
+                    var tr = obj.tr;
+
+                    if (layEvent == 'edit') {
+                        console.log($('.container').height() + ' ' + $('.container').width());
+                        //弹出层
+                        layer.open({
+                            type: 2,
+                            title: '修改用户',
+                            content: '/Login/Edit/' + data.Id,
+                            area: ['600px', '430px']
+                        })
+                    }
+                    if (layEvent == 'detail') {
+                        console.log($('.container').height() + ' ' + $('.container').width());
+                        //弹出层
+                        layer.open({
+                            type: 2,
+                            title: '添加用户',
+                            content: '/MenyMange/AddMen',
+                            area: ['600px', '430px']
+                        })
+                    }
+                    if (layEvent == 'del') {
+                        layer.confirm('真的删除行么', function (index) {
+                            obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                            layer.close(index);
+                            //向服务端发送删除指令
+                            layui.$.post(
+                                '/Login/Delete',
+                                { id: data.Id },
+                                function (data, status) {
+                                    if (data.code == 0) {
+                                        layer.msg('删除成功!');
+                                        tableIns.reload();
+                                    } else if (data.code == 1) {
+                                        layer.msg('删除失败!');
+                                    } else if (data.code == 2) {
+                                        layer.msg('服务器出现错误!');
+                                    }
+                                }
+                            )
+                        });
+                    }
+                })
+
+
+            });
+
+        </script>
+        @*//layui模板*@
+
+
+        <script type="text/html" id="barDemo">
+            <a class="layui-btn layui-btn-xs" lay-event="detail">  <i class="layui-icon">&#xe654;</i></a>
+            <a class="layui-btn layui-btn-xs" lay-event="edit">  <i class="layui-icon">&#xe642;</i></a>
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
+        </script>
+    </body>
+    @RenderBody()
+    </html>
+

@@ -1,0 +1,17 @@
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.DAL.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.DAL.pdb
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.IDAL.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.Model.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\EntityFramework.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.IDAL.pdb
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.Model.pdb
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.Model.dll.config
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\EntityFramework.xml
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\obj\Debug\LT.DAL.csprojAssemblyReference.cache
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\obj\Debug\LT.DAL.csproj.CopyComplete
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\obj\Debug\LT.DAL.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\obj\Debug\LT.DAL.pdb
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.DAL.dll.config
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\LT.IDAL.dll.config
+D:\2班\练习（c#）\假期练习\LT-Demo\LT.DAL\bin\Debug\EntityFramework.SqlServer.xml

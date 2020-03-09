@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "layout2";
+}
+
+<h2>layout2</h2>
+<div>
+
+    这是布局页的内容-----
+    <p>------------------------</p>
+    @RenderBody()
+    <br />
+    @*分部视图的使用*@
+    @*@Html.Partial("~/Views/Shared/View.cshtml");*@
+    @*@Html.Action("ShowData", "Login", new { name = "SharpL", id = "1" });*@ @*可传递数据*@
+</div>
+

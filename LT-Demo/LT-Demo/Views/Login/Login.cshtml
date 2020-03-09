@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <title>登陆</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login">
+            <h1>Login to App</h1>
+            <form method="post" action="/Login/LoginServer">
+                <p><input type="text" name="account" value="" placeholder="Username or Email"></p>
+                <p><input type="password" name="password" value="" placeholder="Password"></p>
+                <p class="remember_me">
+                    <label>
+                        <input type="checkbox" name="remember_me" id="remember_me">
+                        Remember me on this computer
+                    </label>
+                </p>
+                <p class="submit"><input type="submit" name="commit" value="Login"></p>
+            </form>
+        </div>
+
+        <div class="login-help">
+            <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
